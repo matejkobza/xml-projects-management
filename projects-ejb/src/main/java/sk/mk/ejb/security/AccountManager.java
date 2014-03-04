@@ -20,5 +20,9 @@ public interface AccountManager {
      */
     public void register(User u);
 
+    /**
+     * how about to use infinispan here
+     * @return
+     */
     public List<User> list();
 }

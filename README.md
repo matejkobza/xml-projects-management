@@ -30,3 +30,7 @@ To run this application you need to edit file XmlProjectsParser.java in <strong>
 module at location <strong>sk.mk.persistence.util.XmlProjectParser</strong>. Change xml file location of projects.xml
 where projects are stored.
 
+Dummy credentials are:
+Login: <strong>admin</strong>
+Password: <strong>admin</strong>
+

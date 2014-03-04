@@ -22,6 +22,17 @@ public class XmlProjectsParser {
 
     private File file = new File("/Users/matejkobza/projects.xml");
 
+    JAXBContext jaxbContext = null;
+
+    public XmlProjectsParser() {
+        try {
+            jaxbContext = JAXBContext.newInstance(Projects.class);
+        } catch (JAXBException e) {
+            //todo log
+            e.printStackTrace();
+        }
+    }
+
     @XmlRootElement
     private static class Projects {
 
@@ -41,9 +52,7 @@ public class XmlProjectsParser {
      * @return returns list of projects or empty list if no projects or error
      */
     public List<Project> loadProjects() {
-        JAXBContext jaxbContext = null;
         try {
-            jaxbContext = JAXBContext.newInstance(Projects.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             Projects projects = (Projects) jaxbUnmarshaller.unmarshal(file);
             return projects.getProjects();
@@ -55,19 +64,14 @@ public class XmlProjectsParser {
     }
 
     /**
-     *
      * @param projects list of projects to be stored
      */
     public void storeProjects(List<Project> projects) {
         Projects projectz = new Projects();
         projectz.setProjects(projects);
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Projects.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-            // output pretty printed
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
             jaxbMarshaller.marshal(projectz, file);
         } catch (JAXBException e) {
             //todo log

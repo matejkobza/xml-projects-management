@@ -20,5 +20,9 @@ public interface ProjectManager {
 
     public void delete(Project p);
 
+    /**
+     * how about to use infinispan here
+     * @return
+     */
     public List<Project> list();
 }
