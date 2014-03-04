@@ -20,3 +20,9 @@ Results:
 - [/] partialy designed
 - [x] Seam security for login and registration
 
+This application was written in InteliJ Idea v12 running on Mac OS X 10.9.2.
+
+To run this application you need to edit file XmlProjectsParses.java in projects-persistence
+module at location sk.mk.persistence.util.XmlProjectParser. Change xml file location of projects.xml
+where projects are stored.
+
