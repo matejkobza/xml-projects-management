@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+        >
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title><h:outputText value="#{msgs['pagetitle']}"/></title>
+</h:head>
+<h:body>
+    <div id="wrap">
+        <div class="header">
+            <h:form id="frmMain">
+                <p:messages />
+                <!-- login window -->
+                <h:panelGrid rendered="#{!identityBean.loggedIn}" columns="2"
+                             style="border: 0px !important; margin: auto;">
+                    <h:column>
+                        <h:outputLabel for="username" value="#{msgs['login']}"/>
+                    </h:column>
+                    <h:column>
+                        <h:inputText value="#{credentials.username}" id="username"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputLabel for="password" value="#{msgs['password']}"/>
+                    </h:column>
+                    <h:column>
+                        <h:inputSecret value="#{credentials.password}" id="password"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="#{msgs['login']}" actionListener="#{identityBean.login}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{msgs['dontHaveAccount']}"/>&nbsp;
+                        <h:link value="#{msgs['signUp']}" outcome="/jsf/registration"/>
+                    </h:column>
+                </h:panelGrid>
+
+                <!-- user is authenticated -->
+                <p:panel rendered="#{identityBean.loggedIn}">
+                    <h:outputText value="#{msgs['username']}:"/>
+                    <h:outputText value="#{identityBean.user.name}"/>
+                    <br class="clear"/>
+
+                    <div id="menu">
+                        <ul>
+                            <li class="#{(view.viewId eq '/jsf/index.xhtml') ? 'selected' : ''}"><h:link
+                                    outcome="/jsf/index" value="#{msgs['navigation.home']}"/></li>
+                            <li class="#{view.viewId eq '/jsf/projects.xhtml' ? 'selected' : ''}"><h:link
+                                    outcome="/jsf/projects" value="#{msgs['navigation.projects']}"/></li>
+                            <li class="#{view.viewId eq '/jsf/project.xhtml' ? 'selected' : ''}">
+                                <h:commandLink value="#{msgs['logout']}" actionListener="#{identityBean.logout}"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="center_content">
+                        <ui:insert name="content"></ui:insert>
+
+                        <div class="clear"></div>
+                    </div>
+                </p:panel>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

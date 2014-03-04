@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="templates/template.xhtml">
+
+    <ui:define name="content">
+        <h1><h:outputText value="#{msgs['projectsList']}"/></h1>
+
+        <p:dialog id="modalDialog" header="#{msgs['createProject']}" widgetVar="dlg" modal="true" height="350">
+            <h:panelGrid id="newProjectPanel" columns="2">
+                <p:messages/>
+                <h:outputLabel for="idProjectName">
+                    <h:outputText value="#{msgs['projectName']}"/>
+                </h:outputLabel>
+                <h:inputText id="idProjectName" value="#{projectsBean.project.name}"/>
+
+                <h:outputLabel for="idProjectAbbreviation">
+                    <h:outputText value="#{msgs['projectAbbreviation']}"/>
+                </h:outputLabel>
+                <h:inputText id="idProjectAbbreviation" value="#{projectsBean.project.abbreviation}"/>
+
+                <h:outputLabel for="idProjectCustomer">
+                    <h:outputText value="#{msgs['projectCustomer']}"/>
+                </h:outputLabel>
+                <h:inputText id="idProjectCustomer" value="#{projectsBean.project.customer}"/>
+                <h:panelGroup>
+                    <p:commandButton value="#{msgs['button.save']}" actionListener="#{projectsBean.createOrUpdate}"
+                                     update="projectsTbl"
+                                     onsuccess="PF('dlg').hide();"/>
+                    <p:commandButton value="#{msgs['button.cancel']}" actionListener="#{projectsBean.reset}"
+                                     oncomplete="PF('dlg').hide()" update=":frmMain:newProjectPanel"/>
+                </h:panelGroup>
+            </h:panelGrid>
+        </p:dialog>
+
+        <p:commandButton value="#{msgs['createProject']}" id="modalDialogButton" onclick="PF('dlg').show();"
+                         type="button" actionListener="#{projectsBean.reset}" update=":frmMain:newProjectPanel"/>
+
+        <p:dataTable value="#{projectsBean.projects}" var="project" id="projectsTbl">
+            <p:column headerText="#{msgs['projectName']}">
+                <h:outputText value="#{project.name}"/>
+            </p:column>
+            <p:column headerText="#{msgs['projectAbbreviation']}">
+                <h:outputText value="#{project.abbreviation}"/>
+            </p:column>
+            <p:column headerText="#{msgs['projectCustomer']}">
+                <h:outputText value="#{project.customer}"/>
+            </p:column>
+            <p:column>
+                <p:commandButton value="#{msgs['button.delete']}" actionListener="#{projectsBean.delete(project)}"
+                                 update="projectsTbl"/>
+                <p:commandButton value="#{msgs['button.edit']}" actionListener="#{projectsBean.edit(project)}"
+                                 update=":frmMain:newProjectPanel" onclick="PF('dlg').show();"/>
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+
+</ui:composition>
+</html>
