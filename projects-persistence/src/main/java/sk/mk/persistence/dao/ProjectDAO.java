@@ -18,8 +18,8 @@ public interface ProjectDAO {
 
     public void update(Project p);
 
-    public void remove(int id);
+    public void remove(String id);
 
-    public Project find(int id);
+    public Project find(String id);
 
 }

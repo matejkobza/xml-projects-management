@@ -1,5 +1,7 @@
 package sk.mk.persistence.entity;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
 
 /**
@@ -11,16 +13,18 @@ import java.io.Serializable;
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1871445041745723040L;
-    private Integer id;
+
+    private String id;
     private String name;
     private String abbreviation;
     private String customer;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    @XmlAttribute
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -28,6 +32,7 @@ public class Project implements Serializable {
         return name;
     }
 
+    @XmlElement
     public void setName(String name) {
         this.name = name;
     }
@@ -36,6 +41,7 @@ public class Project implements Serializable {
         return abbreviation;
     }
 
+    @XmlElement
     public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
     }
@@ -44,6 +50,7 @@ public class Project implements Serializable {
         return customer;
     }
 
+    @XmlElement
     public void setCustomer(String customer) {
         this.customer = customer;
     }

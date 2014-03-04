@@ -47,7 +47,7 @@ public class User implements Serializable, org.picketlink.idm.api.User {
 
     @Override
     public String getKey() {
-        return username + password;  //To change body of implemented methods use File | Settings | File Templates.
+        return username + password;
     }
 
     @Override

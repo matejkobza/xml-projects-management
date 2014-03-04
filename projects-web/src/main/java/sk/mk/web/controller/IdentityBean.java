@@ -11,6 +11,7 @@ import javax.faces.bean.SessionScoped;
 
 
 /**
+ * This bean uses SEAM Security framework from JBOSS (RedHat)
  * @author matejkobza
  */
 @ManagedBean

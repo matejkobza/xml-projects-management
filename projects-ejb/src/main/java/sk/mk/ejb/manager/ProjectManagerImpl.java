@@ -31,7 +31,7 @@ public class ProjectManagerImpl implements ProjectManager {
         if (p.getId() != null) {
             projectDAO.update(p);
         } else {
-            p.setId(UUID.randomUUID().hashCode());
+            p.setId(UUID.randomUUID().toString());
             projectDAO.create(p);
         }
     }
@@ -39,16 +39,6 @@ public class ProjectManagerImpl implements ProjectManager {
     @Override
     public void delete(Project p) {
         projectDAO.remove(p.getId());
-    }
-
-    @Override
-    public void update(Project p) {
-        projectDAO.update(p);
-    }
-
-    @Override
-    public void find(int id) {
-        projectDAO.find(id);
     }
 
     @Override

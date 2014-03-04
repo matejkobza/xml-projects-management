@@ -1,8 +1,5 @@
 package sk.mk.persistence.dao;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import sk.mk.persistence.entity.User;
 
 import java.util.ArrayList;
@@ -18,6 +15,11 @@ public class UserDAOImpl implements UserDAO {
 
     private List<User> users = new ArrayList<User>();
 
+    /**
+     * This is strongly against Kerckhoffs's principle (http://en.wikipedia.org/wiki/Kerckhoffs's_principle)
+     *
+     * Dummy credentials initializer
+     */
     public UserDAOImpl() {
         User u = new User();
         u.setUsername("admin");

@@ -15,7 +15,8 @@ import javax.inject.Inject;
  * User: matejkobza
  * Date: 6/20/13
  * Time: 7:09 PM
- * To change this template use File | Settings | File Templates.
+ *
+ * Extension to SEAM Security framework. We would rather use good working practice than reveal wheel again.
  */
 public class Authenticator extends BaseAuthenticator implements org.jboss.seam.security.Authenticator {
 
@@ -27,6 +28,9 @@ public class Authenticator extends BaseAuthenticator implements org.jboss.seam.s
 
     private User user;
 
+    /**
+     * basic authentication for our small application
+     */
     @Override
     public void authenticate() {
         User tmpUser = accountManager.find(credentials.getUsername());
@@ -51,7 +55,7 @@ public class Authenticator extends BaseAuthenticator implements org.jboss.seam.s
 
     @Override
     public void postAuthenticate() {
-        // do log event
+        // todo log event - user has authenticated succesfully (whois)
         //this.authenticated = true;
     }
 

@@ -6,6 +6,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import java.util.ResourceBundle;
 
+/**
+ * Application instance representation. Support for faces messages and other handy staff for development
+ */
 public class WebApplication {
 
     private static WebApplication ref;

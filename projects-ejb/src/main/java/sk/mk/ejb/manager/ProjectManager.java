@@ -12,13 +12,13 @@ import java.util.List;
  */
 public interface ProjectManager {
 
+    /**
+     * creates new project if no id set or updates existing project if id is present in project p
+     * @param p
+     */
     public void createOrUpdate(Project p);
 
     public void delete(Project p);
-
-    public void update(Project p);
-
-    public void find(int id);
 
     public List<Project> list();
 }
