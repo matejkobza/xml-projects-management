@@ -35,7 +35,7 @@
                 </h:column>
                 <h:column>
                     <h:outputText value="#{msgs['dontHaveAccount']}"/>&nbsp;
-                    <h:link value="#{msgs['signUp']}" outcome="/jsf/registration"/>
+                    <h:link value="#{msgs['signUp']}" outcome="registration"/>
                 </h:column>
             </h:panelGrid>
 
@@ -48,11 +48,11 @@
                     </span>
                     <div id="menu">
                         <ul>
-                            <li class="#{(view.viewId eq '/jsf/index.xhtml') ? 'selected' : ''}"><h:link
-                                    outcome="/jsf/index" value="#{msgs['navigation.home']}"/></li>
-                            <li class="#{view.viewId eq '/jsf/projects.xhtml' ? 'selected' : ''}"><h:link
-                                    outcome="/jsf/projects" value="#{msgs['navigation.projects']}"/></li>
-                            <li class="#{view.viewId eq '/jsf/project.xhtml' ? 'selected' : ''}">
+                            <li class="#{(view.viewId eq 'index.xhtml') ? 'selected' : ''}"><h:link
+                                    outcome="index" value="#{msgs['navigation.home']}"/></li>
+                            <li class="#{view.viewId eq 'projects.xhtml' ? 'selected' : ''}"><h:link
+                                    outcome="projects" value="#{msgs['navigation.projects']}"/></li>
+                            <li>
                                 <h:commandLink value="#{msgs['logout']}" actionListener="#{identityBean.logout}"/>
                             </li>
                         </ul>
