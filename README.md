@@ -11,14 +11,14 @@ Requirements:
 - Security
 
 Results:
-- [x] Java 7
-- [x] JSF 2.2 - primefaces 4
-- [/] Jboss AS 7.1.1.Final (should work also on GlassFish with EJB 3 support)
-- [/] projects stored in xml file, no need to store users in xml files as well
-- [x] fully compatible with Firefox and Safari
-- [x] 3 layers architecture - DAO, EJB, JSF Beans
-- [/] partialy designed
-- [x] Seam security for login and registration
+[x] Java 7
+[x] JSF 2.2 - primefaces 4
+[/] Jboss AS 7.1.1.Final (should work also on GlassFish with EJB 3 support)
+[/] projects stored in xml file, no need to store users in xml files as well
+[x] fully compatible with Firefox and Safari
+[x] 3 layers architecture - DAO, EJB, JSF Beans
+[/] partialy designed
+[x] Seam security for login and registration
 
 This application was written in InteliJ Idea v12 running on Mac OS X 10.9.2.
 
