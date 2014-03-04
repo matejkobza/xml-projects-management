@@ -22,6 +22,10 @@ Results:
 
 This application was written in InteliJ Idea v12 running on Mac OS X 10.9.2.
 
+InteliJ IDEA is a very fast development IDE that supports various Aplication Servers like Tomcat, TomEE, JBOSS and other.
+Provides developer with various tools like maven and gradle support for easy project integration and development. Easy
+modules, artifacts and facets support for almost all well known development frameworks like CDI, JSF or EJB.
+
 To run this application you need to edit file XmlProjectsParser.java in <strong>projects-persistence</strong>
 module at location <strong>sk.mk.persistence.util.XmlProjectParser</strong>. Change xml file location of projects.xml
 where projects are stored.
