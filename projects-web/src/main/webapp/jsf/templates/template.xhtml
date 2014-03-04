@@ -12,39 +12,40 @@
 </h:head>
 <h:body>
     <div id="wrap">
-        <div class="header">
-            <h:form id="frmMain">
-                <p:messages />
-                <!-- login window -->
-                <h:panelGrid rendered="#{!identityBean.loggedIn}" columns="2"
-                             style="border: 0px !important; margin: auto;">
-                    <h:column>
-                        <h:outputLabel for="username" value="#{msgs['login']}"/>
-                    </h:column>
-                    <h:column>
-                        <h:inputText value="#{credentials.username}" id="username"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputLabel for="password" value="#{msgs['password']}"/>
-                    </h:column>
-                    <h:column>
-                        <h:inputSecret value="#{credentials.password}" id="password"/>
-                    </h:column>
-                    <h:column>
-                        <h:commandButton value="#{msgs['login']}" actionListener="#{identityBean.login}"/>
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{msgs['dontHaveAccount']}"/>&nbsp;
-                        <h:link value="#{msgs['signUp']}" outcome="/jsf/registration"/>
-                    </h:column>
-                </h:panelGrid>
 
-                <!-- user is authenticated -->
-                <p:panel rendered="#{identityBean.loggedIn}">
-                    <h:outputText value="#{msgs['username']}:"/>
-                    <h:outputText value="#{identityBean.user.name}"/>
-                    <br class="clear"/>
+        <h:form id="frmMain">
+            <p:messages/>
+            <!-- login window -->
+            <h:panelGrid rendered="#{!identityBean.loggedIn}" columns="2"
+                         styleClass="loginPanel">
+                <h:column>
+                    <h:outputLabel for="username" value="#{msgs['login']}"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{credentials.username}" id="username"/>
+                </h:column>
+                <h:column>
+                    <h:outputLabel for="password" value="#{msgs['password']}"/>
+                </h:column>
+                <h:column>
+                    <h:inputSecret value="#{credentials.password}" id="password"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="#{msgs['login']}" actionListener="#{identityBean.login}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{msgs['dontHaveAccount']}"/>&nbsp;
+                    <h:link value="#{msgs['signUp']}" outcome="/jsf/registration"/>
+                </h:column>
+            </h:panelGrid>
 
+            <!-- user is authenticated -->
+            <p:panel rendered="#{identityBean.loggedIn}" styleClass="content">
+                <div class="header">
+                    <span>
+                        <h:outputText value="#{msgs['username']}:"/>&nbsp;
+                        <h:outputText value="#{identityBean.user.name}"/>
+                    </span>
                     <div id="menu">
                         <ul>
                             <li class="#{(view.viewId eq '/jsf/index.xhtml') ? 'selected' : ''}"><h:link
@@ -56,14 +57,14 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="center_content">
-                        <ui:insert name="content"></ui:insert>
+                </div>
+                <div class="center_content">
+                    <ui:insert name="content"></ui:insert>
 
-                        <div class="clear"></div>
-                    </div>
-                </p:panel>
-            </h:form>
-        </div>
+                    <div class="clear"></div>
+                </div>
+            </p:panel>
+        </h:form>
     </div>
 </h:body>
 </html>

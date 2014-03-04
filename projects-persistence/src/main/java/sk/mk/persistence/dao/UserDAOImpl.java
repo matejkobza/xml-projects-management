@@ -41,4 +41,14 @@ public class UserDAOImpl implements UserDAO {
         }
         return this.users.get(this.users.indexOf(u));
     }
+
+    @Override
+    public void create(User u) {
+        this.users.add(u);
+    }
+
+    @Override
+    public List<User> listAll() {
+        return this.users;
+    }
 }

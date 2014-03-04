@@ -2,6 +2,8 @@ package sk.mk.ejb.security;
 
 import sk.mk.persistence.entity.User;
 
+import java.util.List;
+
 public interface AccountManager {
 
     /**
@@ -16,5 +18,7 @@ public interface AccountManager {
      * @param u user to be registered
      * @return User registered user
      */
-    public User register(User u);
+    public void register(User u);
+
+    public List<User> list();
 }

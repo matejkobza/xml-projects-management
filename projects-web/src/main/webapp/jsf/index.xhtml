@@ -10,6 +10,14 @@
     <ui:define name="content">
         <h1><h:outputText value="#{msgs['welcome']}"/></h1>
 
+        <p:dataTable value="#{homeBean.users}" var="user">
+            <p:column headerText="#{msgs['login']}">
+                <h:outputText value="#{user.username}" />
+            </p:column>
+            <p:column headerText="#{msgs['name']}">
+                <h:outputText value="#{user.name}" />
+            </p:column>
+        </p:dataTable>
     </ui:define>
 
 </ui:composition>

@@ -10,14 +10,38 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Simple JSF Facelets page</title>
+    <title><h:outputText value="#{res['registration']}"/></title>
+    <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 
 <h:body>
-    Place your content here
+    <h:form>
+        <p:outputPanel styleClass="registration">
+            <p:messages/>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="username" value="#{msgs['username']}"/>
+                <h:inputText id="username" value="#{registrationBean.user.username}"/>
+
+                <h:outputLabel for="name" value="#{msgs['name']}"/>
+                <h:inputText id="name" value="#{registrationBean.user.name}"/>
+
+                <h:outputLabel for="password" value="#{msgs['password']}"/>
+                <h:inputSecret id="password" value="#{registrationBean.user.password}"/>
+
+                <h:outputLabel for="password2" value="#{msgs['password2']}"/>
+                <h:inputSecret id="password2" value="#{registrationBean.password2}"/>
+            </h:panelGrid>
+            <p:outputPanel style="padding: 10px;">
+                <p:commandButton actionListener="#{registrationBean.register}" value="#{msgs['button.save']}"
+                                 update="@form"/>
+                <p:commandButton action="/jsf/index" value="#{msgs['button.cancel']}"/>
+            </p:outputPanel>
+        </p:outputPanel>
+    </h:form>
 </h:body>
 
 </html>

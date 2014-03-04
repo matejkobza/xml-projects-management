@@ -1,0 +1,60 @@
+body {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#wrap, .content, .content .ui-panel-content {
+    padding: 0px !important;
+    margin: 0px !important;
+    border: 0px !important;
+}
+
+.header {
+    background: #000000;
+    color: #ffffff;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.header a {
+    color: #ffffff !important;
+}
+
+.header #menu, .header #menu ul {
+    margin: 0px !important;
+    padding: 0px !important;
+    float: right;
+}
+
+.header ul li {
+    float: left;
+    padding: 0 5px;
+    list-style-type: none;
+}
+
+.center_content {
+    padding: 25px;
+}
+
+.buttonCreate {
+    margin: 15px;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.loginPanel {
+    margin: auto;
+    margin-top: 50px;
+    border: 1px #AFAFAF solid;
+    padding: 25px;
+}
+
+.registration {
+    margin: auto;
+    padding: 50px;
+    margin-top: 50px;
+    width: 350px !important;
+    border: 1px #AFAFAF solid;
+}

@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Dependent
 @Named("accountManager")
@@ -27,8 +28,13 @@ public class AccountManagerImpl implements AccountManager {
     }
 
     @Override
-    public User register(User u) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public void register(User u) {
+        userDao.create(u);  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<User> list() {
+        return userDao.listAll();
     }
 }
 
